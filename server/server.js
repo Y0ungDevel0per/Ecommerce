@@ -1,5 +1,4 @@
 const express = require('express');
-const port = process.env.PORT || "3000";
 const cors = require('cors');
 const app = express();
 const http = require('http');
@@ -7,7 +6,7 @@ require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
 require('./connection')
 const server = http.createServer(app);
-const {Server} = require('socket.io');
+const {Server} = require('socket.io')
 const io = new Server(server, {
     cors: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PATCH', 'DELETE']
@@ -46,8 +45,7 @@ app.post('/create-payment', async(req, res)=> {
 
 
 server.listen(8080, ()=> {
-    // console.log('server running on port', 8080)
-    console.log(`Server listening at http://localhost:${port}`);
+    console.log('server running on port', 8080)
 })
 
 
