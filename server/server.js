@@ -1,4 +1,5 @@
 const express = require('express');
+const port = process.env.PORT || "3000";
 const cors = require('cors');
 const app = express();
 const http = require('http');
@@ -45,7 +46,8 @@ app.post('/create-payment', async(req, res)=> {
 
 
 server.listen(8080, ()=> {
-    console.log('server running on port', 8080)
+    // console.log('server running on port', 8080)
+    console.log(`Server listening at http://localhost:${port}`);
 })
 
 
